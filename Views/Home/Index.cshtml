@@ -1,47 +1,84 @@
-﻿<h1 class="display-4" style="align-self">ChordsDemo</h1>
-<br>
-<br>
-<div class="mainChord">
-    <h2>C Major</h2>
-    <ins class="scales_chords_api" chord="C"></ins>
-    <ins class="scales_chords_api" chord="C" instrument="piano" height="100"></ins>
-</div>
-<br>
-<br>
-<div class="diatonProgG">
-    <h3>Diatonic Chord Progression: Guitar</h3>
-    <ins class="scales_chords_api" chord="Cmaj7"></ins>
-    <ins class="scales_chords_api" chord="Dm7"></ins>
-    <br>
-    <ins class="scales_chords_api" chord="Em7"></ins>
-    <ins class="scales_chords_api" chord="Fmaj7"></ins>
-    <br>
-    <ins class="scales_chords_api" chord="G7"></ins>
-    <ins class="scales_chords_api" chord="Am7"></ins>
-    <br>
-    <ins class="scales_chords_api" chord="Bm7b5"></ins>
-</div>
-<br>
-<br>
-<br>
-<div class="diatonProgP">
-    <h3>Diatonic Chord Progression: Piano</h3>
-    <ins class="scales_chords_api" chord="Cmaj7" instrument="piano" height="100"></ins>
-    <ins class="scales_chords_api" chord="Dm7" instrument="piano" height="100"></ins>
-    <br>
-    <br>
-    <ins class="scales_chords_api" chord="Em7" instrument="piano" height="100"></ins>
-    <ins class="scales_chords_api" chord="Fmaj7" instrument="piano" height="100"></ins>
-    <br>
-    <br>
-    <ins class="scales_chords_api" chord="G7" instrument="piano" height="100"></ins>
-    <ins class="scales_chords_api" chord="Am7" instrument="piano" height="100"></ins>
-    <br>
-    <br>
-    <ins class="scales_chords_api" chord="Bm7b5" instrument="piano" height="100"></ins>
-</div>
+﻿<body>
+    <header>
+    </header>
+    <section>
+        <h1 class="display-4">ChordsDemo</h1>
 
+        <br>
+        <br>
+
+        <form>
+            <label for="c">Chord Name:</label>
+            <input type="text" id="c" name="chord" value="Name" />
+            <input type="submit" />
+        </form>
+
+        <br />
+        <br />
+
+        <div class="mainChord">
+            <h2>C Major</h2>
+            <ins class="scales_chords_api" chord="C" output="sound"></ins>
+            <ins class="scales_chords_api" chord="C"></ins>
+            <ins class="scales_chords_api" chord="C" instrument="piano" output="sound"></ins>
+            <ins id="pmain" class="scales_chords_api" chord="C" instrument="piano" height="110"></ins>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="diatonProgG">
+            <h3>Diatonic Chord Progression: Guitar</h3>
+            <ins class="scales_chords_api" chord="Cmaj7"></ins>
+            <ins class="scales_chords_api" chord="Dm7"></ins>
+            @*<br>*@
+            <ins class="scales_chords_api" chord="Em7"></ins>
+            <ins class="scales_chords_api" chord="Fmaj7"></ins>
+            @*<br>*@
+            <ins class="scales_chords_api" chord="G7"></ins>
+            <ins class="scales_chords_api" chord="Am7"></ins>
+            @*<br>*@
+            <ins class="scales_chords_api" chord="Bm7b5"></ins>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="diatonProgP">
+            <h3>Diatonic Chord Progression: Piano</h3>
+            <ins class="scales_chords_api" chord="Cmaj7" instrument="piano" height="110"></ins>
+            <ins class="scales_chords_api" chord="Dm7" instrument="piano" height="110"></ins>
+            @*<br>
+            <br>*@
+            <ins class="scales_chords_api" chord="Em7" instrument="piano" height="110"></ins>
+            <ins class="scales_chords_api" chord="Fmaj7" instrument="piano" height="110"></ins>
+            @*<br>
+            <br>*@
+            <ins class="scales_chords_api" chord="G7" instrument="piano" height="110"></ins>
+            <ins class="scales_chords_api" chord="Am7" instrument="piano" height="110"></ins>
+            @*<br>
+            <br>*@
+            <ins class="scales_chords_api" chord="Bm7b5" instrument="piano" height="110"></ins>
+        </div>
+
+    </section>
+</body>
+
+<style>
+    ins{
+        margin: 5px;
+        /*margin-right: 5px*/
+    }
+
+    body{
+        text-align: center
+    }
+    #pmain{
+        margin-bottom: 5px
+    }
+</style>
 @section Scripts {
     <script async type="text/javascript" src="https://www.scales-chords.com/api/scales-chords-api.js"></script>
-    
+
 }
