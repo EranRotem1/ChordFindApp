@@ -2,95 +2,97 @@
     <header>
     </header>
     <section>
-        <h1 class="display-4">ChordFind</h1>
+        <div class="main">
+            <h1 class="display-4">ChordFind</h1>
 
-        <br>
-        <form>
-            <br />
-            <label for="ctext">Chord Name:</label>
-            <input type="text" id="ctext" name="chord" value="Name" />
+            <br>
+            <form>
+                <br />
+                <label for="ctext">Chord Name:</label>
+                <input type="text" id="ctext" name="chord" value="Name" />
+                <br />
+                <br />
+
+                <p>Or</p>
+
+                <label for="cselect">Select:</label>
+                <select name="tone" id="cselect">
+                    <option value="c">C</option>
+                    <option value="c#">C#</option>
+                    <option value="d">D</option>
+                    <option value="d#">D#</option>
+                    <option value="e">E</option>
+                    <option value="f">F</option>
+                    <option value="f#">F#</option>
+                    <option value="g">G</option>
+                    <option value="g#">G#</option>
+                    <option value="a">A</option>
+                    <option value="a#">A#</option>
+                    <option value="b">B</option>
+                </select>
+                <select name="type">
+                    <option value="none"></option>
+                    <option value="maj">maj</option>
+                    <option value="m">m</option>
+                    <option value="dim">dim</option>
+                    <option value="aug">aug</option>
+                    <option value="sus">sus</option>
+                </select>
+                <select name="num">
+                    <option value="none"></option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="6/9">6/9</option>
+                    <option value="7">7</option>
+                    <option value="7b5">7b5</option>
+                    <option value="9">9</option>
+                    <option value="11">11</option>
+                    <option value="13">13</option>
+                </select>
+
+                <br />
+                <br />
+                <label for="">Instrument:</label>
+                <input type="radio" id="both" name="inst" value="both" checked="checked" />
+                <label for="both">Both</label>
+                <input type="radio" id="guit" name="inst" value="guitar" />
+                <label for="guit">Guitar</label>
+                <input type="radio" id="piano" name="inst" value="piano" />
+                <label for="piano">Piano</label>
+
+                <br />
+                <br />
+
+                <label for="">Chord Progression:</label>
+                @*<input type="radio" id="none" name="prog" value="none" />
+                <label for="none">None</label>*@
+                <input type="radio" id="3" name="prog" value="triads" />
+                <label for="3">Triads</label>
+                <input type="radio" id="7" name="prog" value="7th" checked="checked" />
+                <label for="7">7th chords</label>
+
+                <br />
+                <br />
+
+                <input type="submit" />
+
+                <br />
+                <br />
+            </form>
+
             <br />
             <br />
 
-            <p>Or</p>
-
-            <label for="cselect">Select:</label>
-            <select name="tone" id="cselect">
-                <option value="c">C</option>
-                <option value="c#">C#</option>
-                <option value="d">D</option>
-                <option value="d#">D#</option>
-                <option value="e">E</option>
-                <option value="f">F</option>
-                <option value="f#">F#</option>
-                <option value="g">G</option>
-                <option value="g#">G#</option>
-                <option value="a">A</option>
-                <option value="a#">A#</option>
-                <option value="b">B</option>
-            </select>
-            <select name="type">
-                <option value="none"></option>
-                <option value="maj">maj</option>
-                <option value="m">m</option>
-                <option value="dim">dim</option>
-                <option value="aug">aug</option>
-                <option value="sus">sus</option>
-            </select>
-            <select name="num">
-                <option value="none"></option>
-                <option value="2">2</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="6/9">6/9</option>
-                <option value="7">7</option>
-                <option value="7b5">7b5</option>
-                <option value="9">9</option>
-                <option value="11">11</option>
-                <option value="13">13</option>
-            </select>
-
-            <br />
-            <br />
-            <label for="">Instrument:</label>
-            <input type="radio" id="both" name="inst" value="both" checked="checked" />
-            <label for="both">Both</label>
-            <input type="radio" id="guit" name="inst" value="guitar" />
-            <label for="guit">Guitar</label>
-            <input type="radio" id="piano" name="inst" value="piano" />
-            <label for="piano">Piano</label>
-
-            <br />
-            <br />
-
-            <label for="">Chord Progression:</label>
-            @*<input type="radio" id="none" name="prog" value="none" />
-            <label for="none">None</label>*@
-            <input type="radio" id="3" name="prog" value="triads" />
-            <label for="3">Triads</label>
-            <input type="radio" id="7" name="prog" value="7th" checked="checked" />
-            <label for="7">7th chords</label>
-
-            <br />
-            <br />
-
-            <input type="submit" />
-
-            <br />
-            <br />
-        </form>
-
-        <br />
-        <br />
-
-        <div class="mainChord">
-            <h2>C</h2>
-            <br />
-            <ins class="scales_chords_api" chord="C" output="sound"></ins>
-            <ins class="scales_chords_api" chord="C" height="150"></ins>
-            <ins class="scales_chords_api" chord="C" instrument="piano" output="sound"></ins>
-            <ins id="pmain" class="scales_chords_api" chord="C" instrument="piano" height="150"></ins>
+            <div class="mainChord">
+                <h2>C</h2>
+                <br />
+                <ins class="scales_chords_api" chord="C" output="sound"></ins>
+                <ins class="scales_chords_api" chord="C" height="170"></ins>
+                <ins class="scales_chords_api" chord="C" instrument="piano" output="sound"></ins>
+                <ins id="pmain" class="scales_chords_api" chord="C" instrument="piano" height="170"></ins>
+            </div>
         </div>
 
         <br>
@@ -101,31 +103,45 @@
                 <h3>Diatonic Chord Progression: Guitar</h3>
                 <div class="diag" style="border-color:#63f542;">
                     <ins class="scales_chords_api" chord="Cmaj7"></ins>
-                    <p>(I) Tonic</p>
+                    <p>(I) Tonic 
+                        <ins class="scales_chords_api" chord="Cmaj7" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#40a3f5;">
                     <ins class="scales_chords_api" chord="Dm7"></ins>
-                    <p>(ii) Supertonic</p>
+                    <p>(ii) Supertonic
+                        <ins class="scales_chords_api" chord="Dm7" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#ed2438;">
                     <ins class="scales_chords_api" chord="Em7"></ins>
-                    <p>(iii) Mediant</p>
+                    <p>(iii) Mediant
+                        <ins class="scales_chords_api" chord="Em7" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#40a3f5;">
                     <ins class="scales_chords_api" chord="Fmaj7"></ins>
-                    <p>(IV) Sub-Dominant</p>
+                    <p>(IV) Sub-Dominant
+                        <ins class="scales_chords_api" chord="Fmaj7" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#ed2438;">
                     <ins class="scales_chords_api" chord="G7"></ins>
-                    <p>(V) Dominant</p>
+                    <p>(V) Dominant
+                        <ins class="scales_chords_api" chord="G7" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#40a3f5;">
                     <ins class="scales_chords_api" chord="Am7"></ins>
-                    <p>(vi) Sub-Mediant</p>
+                    <p>(vi) Sub-Mediant
+                        <ins class="scales_chords_api" chord="Am7" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#ed2438;">
                     <ins class="scales_chords_api" chord="Bm7b5"></ins>
-                    <p>(vii) Subtonic</p>
+                    <p>(vii) Subtonic
+                        <ins class="scales_chords_api" chord="Bm7b5" output="sound"></ins>
+                    </p>
                 </div>
             </div>
 
@@ -137,31 +153,45 @@
                 <h3>Diatonic Chord Progression: Piano</h3>
                 <div class="diag" style="border-color:#63f542;">
                     <ins class="scales_chords_api" chord="Cmaj7" instrument="piano" height="110"></ins>
-                    <p>(I) Tonic</p>
+                    <p>(I) Tonic 
+                        <ins class="scales_chords_api" chord="Cmaj7" instrument="piano" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#40a3f5;">
                     <ins class="scales_chords_api" chord="Dm7" instrument="piano" height="110"></ins>
-                    <p>(ii) Supertonic</p>
+                    <p>(ii) Supertonic
+                        <ins class="scales_chords_api" chord="Dm7" instrument="piano" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#ed2438;">
                     <ins class="scales_chords_api" chord="Em7" instrument="piano" height="110"></ins>
-                    <p>(iii) Mediant</p>
+                    <p>(iii) Mediant
+                        <ins class="scales_chords_api" chord="Em7" instrument="piano" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#40a3f5;">
                     <ins class="scales_chords_api" chord="Fmaj7" instrument="piano" height="110"></ins>
-                    <p>(IV) Sub-Dominant</p>
+                    <p>(IV) Sub-Dominant
+                        <ins class="scales_chords_api" chord="Fmaj7" instrument="piano" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#ed2438;">
                     <ins class="scales_chords_api" chord="G7" instrument="piano" height="110"></ins>
-                    <p>(V) Dominant</p>
+                    <p>(V) Dominant
+                        <ins class="scales_chords_api" chord="G7" instrument="piano" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#40a3f5;">
                     <ins class="scales_chords_api" chord="Am7" instrument="piano" height="110"></ins>
-                    <p>(vi) Sub-Mediant</p>
+                    <p>(vi) Sub-Mediant
+                        <ins class="scales_chords_api" chord="Am7" instrument="piano" output="sound"></ins>
+                    </p>
                 </div>
                 <div class="diag" style="border-color:#ed2438;">
                     <ins class="scales_chords_api" chord="Bm7b5" instrument="piano" height="110"></ins>
-                    <p>(vii) Subtonic</p>
+                    <p>(vii) Subtonic
+                        <ins class="scales_chords_api" chord="Bm7b5" instrument="piano" output="sound"></ins>
+                    </p>
                 </div>
             </div>
         </section>
@@ -174,8 +204,15 @@
         /*margin-right: 5px*/
     }
 
+    h2{
+        border: 3px solid lightgray;
+        width: 200px;
+        margin-left: 42%;
+    }
+
     body {
         text-align: center;
+        
     }
 
     #diatonProgP, #diatonProgG {
@@ -204,6 +241,13 @@
         width: fit-content;
         margin: 4px;
         display: inline-block;
+    }
+
+    .main{
+        /*border: 5px gray solid;*/
+        /*display:contents;
+        justify-content: center;
+        align-items: center;*/
     }
 </style>
 @section Scripts {
