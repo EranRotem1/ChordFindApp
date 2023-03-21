@@ -28,5 +28,12 @@ namespace TestingChords.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult ChordSearch(string chordName) 
+        {
+            var chord = new Chord();
+            chord.Name = chordName;
+            return View(chord);
+        }
     }
 }

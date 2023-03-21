@@ -1,22 +1,24 @@
-﻿<body>
+﻿@model Chord
+<body>
     <header>
     </header>
     <section>
         <div class="main">
             <h1 class="display-4">ChordFind</h1>
 
+            @{var chord = new Chord();}
             <br>
             <form>
                 <br />
                 <label for="ctext">Chord Name:</label>
-                <input type="text" id="ctext" name="chord" value="Name" />
+                <input type="text" id="ctext" name="Name" value="@chord.Name" />
                 <br />
                 <br />
 
                 <p>Or</p>
 
                 <label for="cselect">Select:</label>
-                <select name="tone" id="cselect">
+                <select name="Tone" id="cselect">
                     <option value="c">C</option>
                     <option value="c#">C#</option>
                     <option value="d">D</option>
@@ -30,7 +32,7 @@
                     <option value="a#">A#</option>
                     <option value="b">B</option>
                 </select>
-                <select name="type">
+                <select name="Type">
                     <option value="none"></option>
                     <option value="maj">maj</option>
                     <option value="m">m</option>
@@ -38,7 +40,7 @@
                     <option value="aug">aug</option>
                     <option value="sus">sus</option>
                 </select>
-                <select name="num">
+                <select name="Extension">
                     <option value="none"></option>
                     <option value="2">2</option>
                     <option value="4">4</option>
@@ -55,11 +57,11 @@
                 <br />
                 <br />
                 <label for="">Instrument:</label>
-                <input type="radio" id="both" name="inst" value="both" checked="checked" />
+                <input type="radio" id="both" name="Inst" value="both" checked="checked" />
                 <label for="both">Both</label>
-                <input type="radio" id="guit" name="inst" value="guitar" />
+                <input type="radio" id="guit" name="Inst" value="guitar" />
                 <label for="guit">Guitar</label>
-                <input type="radio" id="piano" name="inst" value="piano" />
+                <input type="radio" id="piano" name="Inst" value="piano" />
                 <label for="piano">Piano</label>
 
                 <br />
@@ -86,12 +88,12 @@
             <br />
 
             <div class="mainChord">
-                <h2>C</h2>
+                @*<h2>@Model.Name</h2>*@
                 <br />
-                <ins class="scales_chords_api" chord="C" output="sound"></ins>
-                <ins class="scales_chords_api" chord="C" height="170"></ins>
-                <ins class="scales_chords_api" chord="C" instrument="piano" output="sound"></ins>
-                <ins id="pmain" class="scales_chords_api" chord="C" instrument="piano" height="170"></ins>
+                <ins class="scales_chords_api" chord="@chord.Name" output="sound"></ins>
+                <ins class="scales_chords_api" chord="@chord.Name" height="170"></ins>
+                <ins class="scales_chords_api" chord="@chord.Name" instrument="piano" output="sound"></ins>
+                <ins id="pmain" class="scales_chords_api" chord="@chord.Name" instrument="piano" height="170"></ins>
             </div>
         </div>
 
