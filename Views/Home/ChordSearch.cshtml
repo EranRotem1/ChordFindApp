@@ -15,7 +15,7 @@
                 <br />
                 <br />
 
-                <p>Or</p>
+               @* <p>Or</p>
 
                 <label for="cselect">Select:</label>
                 <select name="Tone" id="cselect">
@@ -55,7 +55,7 @@
                 </select>
 
                 <br />
-                <br />
+                <br />*@
                 <label for="">Instrument:</label>
                 <input type="radio" id="both" name="Inst" value="both" checked="checked" />
                 <label for="both">Both</label>
@@ -68,11 +68,11 @@
                 <br />
 
                 <label for="">Chord Progression:</label>
-                @*<input type="radio" id="none" name="prog" value="none" />
-                <label for="none">None</label>*@
-                <input type="radio" id="3" name="prog" value="triads" />
+                <input type="radio" id="none" name="Progression" value="none" checked="checked"/>
+                <label for="none">None</label>
+                <input type="radio" id="3" name="Progression" value="triads" />
                 <label for="3">Triads</label>
-                <input type="radio" id="7" name="prog" value="7th" checked="checked" />
+                <input type="radio" id="7" name="Progression" value="sevenths" />
                 <label for="7">7th chords</label>
 
                 <br />
@@ -87,22 +87,31 @@
             <br />
             <br />
 
-            <div class="mainChord">
-                @*<h2>@Model.Name</h2>*@
+
+
+                <div class="mainChord">
+                    <h2>@Model.Name</h2>
                 <br />
-                <ins class="scales_chords_api" chord="@Model.Name" output="sound"></ins>
-                <ins class="scales_chords_api" chord="@Model.Name" height="170"></ins>
-                <ins class="scales_chords_api" chord="@Model.Name" instrument="piano" output="sound"></ins>
-                <ins id="pmain" class="scales_chords_api" chord="@Model.Name" instrument="piano" height="170"></ins>
+                @if (@Model.Inst == "both" || @Model.Inst == "guitar")
+                {
+                    <ins class="scales_chords_api" chord="@Model.Name" output="sound"></ins>
+                    <ins class="scales_chords_api" chord="@Model.Name" height="170"></ins>
+                }
+                @if (@Model.Inst == "both" || @Model.Inst == "piano")
+                {
+                    <ins class="scales_chords_api" chord="@Model.Name" instrument="piano" output="sound"></ins>
+                    <ins id="pmain" class="scales_chords_api" chord="@Model.Name" instrument="piano" height="170"></ins>
+                }
             </div>
         </div>
 
         <br>
         <br>
         <section id="chords">
-
-            <div id="diatonProgG" style="width: 1600px">
-                <h3>Diatonic Chord Progression: Guitar</h3>
+            @if (Model.Progression == "sevenths" && (Model.Inst == "guitar" || Model.Inst == "both"))
+            {
+                <div id="diatonProgG7" style="width: 1600px">
+                    <h3>Diatonic 7th Chords: Guitar</h3>
                 <div class="diag" style="border-color:#63f542;">
                     <ins class="scales_chords_api" chord="Cmaj7"></ins>
                     <p>
@@ -153,13 +162,14 @@
                     </p>
                 </div>
             </div>
-
+            }
             <br>
             <br>
             <br>
-
-            <div id="diatonProgP">
-                <h3>Diatonic Chord Progression: Piano</h3>
+            @if (Model.Progression == "sevenths" && (Model.Inst == "piano" || Model.Inst == "both"))
+            {
+                <div id="diatonProgP7">
+                    <h3>Diatonic 7th Chords: Piano</h3>
                 <div class="diag" style="border-color:#63f542;">
                     <ins class="scales_chords_api" chord="Cmaj7" instrument="piano" height="110"></ins>
                     <p>
@@ -210,6 +220,121 @@
                     </p>
                 </div>
             </div>
+            }
+            @*triads*@
+            @if (Model.Progression == "triads" && (Model.Inst == "guitar" || Model.Inst == "both"))
+            {
+                <div id="diatonProgG" style="width: 1600px">
+                    <h3>Diatonic Triads: Guitar</h3>
+                <div class="diag" style="border-color:#63f542;">
+                    <ins class="scales_chords_api" chord="C"></ins>
+                    <p>
+                        (I) Tonic
+                        <ins class="scales_chords_api" chord="C" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#40a3f5;">
+                    <ins class="scales_chords_api" chord="Dm"></ins>
+                    <p>
+                        (ii) Supertonic
+                        <ins class="scales_chords_api" chord="Dm" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#ed2438;">
+                    <ins class="scales_chords_api" chord="Em"></ins>
+                    <p>
+                        (iii) Mediant
+                        <ins class="scales_chords_api" chord="Em" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#40a3f5;">
+                    <ins class="scales_chords_api" chord="F"></ins>
+                    <p>
+                        (IV) Sub-Dominant
+                        <ins class="scales_chords_api" chord="F" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#ed2438;">
+                    <ins class="scales_chords_api" chord="G"></ins>
+                    <p>
+                        (V) Dominant
+                        <ins class="scales_chords_api" chord="G" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#40a3f5;">
+                    <ins class="scales_chords_api" chord="Am"></ins>
+                    <p>
+                        (vi) Sub-Mediant
+                        <ins class="scales_chords_api" chord="Am" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#ed2438;">
+                    <ins class="scales_chords_api" chord="Bdim"></ins>
+                    <p>
+                        (vii) Subtonic
+                        <ins class="scales_chords_api" chord="Bdim" output="sound"></ins>
+                    </p>
+                </div>
+            </div>
+            }
+            <br>
+            <br>
+            <br>
+            @if (Model.Progression == "triads" && (Model.Inst == "piano" || Model.Inst == "both"))
+            {
+                <div id="diatonProgP">
+                    <h3>Diatonic Triads: Piano</h3>
+                <div class="diag" style="border-color:#63f542;">
+                    <ins class="scales_chords_api" chord="C" instrument="piano" height="110"></ins>
+                    <p>
+                        (I) Tonic
+                        <ins class="scales_chords_api" chord="C" instrument="piano" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#40a3f5;">
+                    <ins class="scales_chords_api" chord="Dm" instrument="piano" height="110"></ins>
+                    <p>
+                        (ii) Supertonic
+                        <ins class="scales_chords_api" chord="Dm" instrument="piano" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#ed2438;">
+                    <ins class="scales_chords_api" chord="Em" instrument="piano" height="110"></ins>
+                    <p>
+                        (iii) Mediant
+                        <ins class="scales_chords_api" chord="Em" instrument="piano" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#40a3f5;">
+                    <ins class="scales_chords_api" chord="F" instrument="piano" height="110"></ins>
+                    <p>
+                        (IV) Sub-Dominant
+                        <ins class="scales_chords_api" chord="F" instrument="piano" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#ed2438;">
+                    <ins class="scales_chords_api" chord="G" instrument="piano" height="110"></ins>
+                    <p>
+                        (V) Dominant
+                        <ins class="scales_chords_api" chord="G" instrument="piano" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#40a3f5;">
+                    <ins class="scales_chords_api" chord="Am" instrument="piano" height="110"></ins>
+                    <p>
+                        (vi) Sub-Mediant
+                        <ins class="scales_chords_api" chord="Am" instrument="piano" output="sound"></ins>
+                    </p>
+                </div>
+                <div class="diag" style="border-color:#ed2438;">
+                    <ins class="scales_chords_api" chord="Bdim" instrument="piano" height="110"></ins>
+                    <p>
+                        (vii) Subtonic
+                        <ins class="scales_chords_api" chord="Bdim" instrument="piano" output="sound"></ins>
+                    </p>
+                </div>
+            </div>
+            }
         </section>
     </section>
 </body>

@@ -11,7 +11,9 @@
                 <br />
                 <label for="ctext">Chord Name:</label>
                 <input type="text" id="ctext" name="Name" value="@Model.Name" />
+                <button type="submit">Search</button>
 
+@*
                 <br />
                 <br />
 
@@ -53,7 +55,7 @@
                     <option value="11">11</option>
                     <option value="13">13</option>
                 </select>
-
+*@
                 <br />
                 <br />
                 <label for="">Instrument:</label>
@@ -68,27 +70,21 @@
                 <br />
 
                 <label for="">Chord Progression:</label>
-                @*<input type="radio" id="none" name="prog" value="none" />
-                <label for="none">None</label>*@
-                <input type="radio" id="3" name="prog" value="triads" />
+                <input type="radio" id="none" name="prog" value="none" />
+                <label for="none">None</label>
+                <input type="radio" id="3" name="prog" value="triads" checked="checked" />
                 <label for="3">Triads</label>
-                <input type="radio" id="7" name="prog" value="7th" checked="checked" />
+                <input type="radio" id="7" name="prog" value="7th" />
                 <label for="7">7th chords</label>
-
-                <br />
-                <br />
-
-                <button type="submit" >Search</button>
-
+  
                 <br />
                 <br />
             </form>
 
             <br />
-            <br />
 
             <div class="mainChord">
-                @*<h2>@Model.Name</h2>*@
+                <h2>@Model.Name</h2>
                 <br />
                 <ins class="scales_chords_api" chord="@Model.Name" output="sound"></ins>
                 <ins class="scales_chords_api" chord="@Model.Name" height="170"></ins>
@@ -99,104 +95,7 @@
 
         <br>
         <br>
-        <section id="chords">
-
-            <div id="diatonProgG" style="width: 1600px">
-                <h3>Diatonic Chord Progression: Guitar</h3>
-                <div class="diag" style="border-color:#63f542;">
-                    <ins class="scales_chords_api" chord="Cmaj7"></ins>
-                    <p>(I) Tonic 
-                        <ins class="scales_chords_api" chord="Cmaj7" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#40a3f5;">
-                    <ins class="scales_chords_api" chord="Dm7"></ins>
-                    <p>(ii) Supertonic
-                        <ins class="scales_chords_api" chord="Dm7" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#ed2438;">
-                    <ins class="scales_chords_api" chord="Em7"></ins>
-                    <p>(iii) Mediant
-                        <ins class="scales_chords_api" chord="Em7" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#40a3f5;">
-                    <ins class="scales_chords_api" chord="Fmaj7"></ins>
-                    <p>(IV) Sub-Dominant
-                        <ins class="scales_chords_api" chord="Fmaj7" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#ed2438;">
-                    <ins class="scales_chords_api" chord="G7"></ins>
-                    <p>(V) Dominant
-                        <ins class="scales_chords_api" chord="G7" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#40a3f5;">
-                    <ins class="scales_chords_api" chord="Am7"></ins>
-                    <p>(vi) Sub-Mediant
-                        <ins class="scales_chords_api" chord="Am7" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#ed2438;">
-                    <ins class="scales_chords_api" chord="Bm7b5"></ins>
-                    <p>(vii) Subtonic
-                        <ins class="scales_chords_api" chord="Bm7b5" output="sound"></ins>
-                    </p>
-                </div>
-            </div>
-
-            <br>
-            <br>
-            <br>
-
-            <div id="diatonProgP">
-                <h3>Diatonic Chord Progression: Piano</h3>
-                <div class="diag" style="border-color:#63f542;">
-                    <ins class="scales_chords_api" chord="Cmaj7" instrument="piano" height="110"></ins>
-                    <p>(I) Tonic 
-                        <ins class="scales_chords_api" chord="Cmaj7" instrument="piano" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#40a3f5;">
-                    <ins class="scales_chords_api" chord="Dm7" instrument="piano" height="110"></ins>
-                    <p>(ii) Supertonic
-                        <ins class="scales_chords_api" chord="Dm7" instrument="piano" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#ed2438;">
-                    <ins class="scales_chords_api" chord="Em7" instrument="piano" height="110"></ins>
-                    <p>(iii) Mediant
-                        <ins class="scales_chords_api" chord="Em7" instrument="piano" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#40a3f5;">
-                    <ins class="scales_chords_api" chord="Fmaj7" instrument="piano" height="110"></ins>
-                    <p>(IV) Sub-Dominant
-                        <ins class="scales_chords_api" chord="Fmaj7" instrument="piano" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#ed2438;">
-                    <ins class="scales_chords_api" chord="G7" instrument="piano" height="110"></ins>
-                    <p>(V) Dominant
-                        <ins class="scales_chords_api" chord="G7" instrument="piano" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#40a3f5;">
-                    <ins class="scales_chords_api" chord="Am7" instrument="piano" height="110"></ins>
-                    <p>(vi) Sub-Mediant
-                        <ins class="scales_chords_api" chord="Am7" instrument="piano" output="sound"></ins>
-                    </p>
-                </div>
-                <div class="diag" style="border-color:#ed2438;">
-                    <ins class="scales_chords_api" chord="Bm7b5" instrument="piano" height="110"></ins>
-                    <p>(vii) Subtonic
-                        <ins class="scales_chords_api" chord="Bm7b5" instrument="piano" output="sound"></ins>
-                    </p>
-                </div>
-            </div>
-        </section>
+        
     </section>
 </body>
 
@@ -207,7 +106,7 @@
     }
 
     h2{
-        border: 3px solid lightgray;
+        /*border: 3px solid lightgray;*/
         width: 200px;
         margin-left: 42%;
     }
