@@ -15,7 +15,9 @@ namespace TestingChords.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            //return View();
+            var chord = new Chord();
+            return View(chord);
         }
 
         public IActionResult Privacy()
@@ -29,10 +31,8 @@ namespace TestingChords.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult ChordSearch(string chordName) 
+        public IActionResult ChordSearch(Chord chord)
         {
-            var chord = new Chord();
-            chord.Name = chordName;
             return View(chord);
         }
     }
