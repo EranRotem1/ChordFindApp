@@ -12,7 +12,6 @@
             <br />
             <br />
             <br />
-
             <h1 class="display-4">ChordFind</h1>
 
             <br>
@@ -21,102 +20,11 @@
                 <label for="ctext">Chord Name:</label>
                 <input type="text" id="ctext" name="Name" value="" />
                 <button type="submit">Search</button>
-
-@*
-                <br />
-                <br />
-
-                <p>Or</p>
-
-                <label for="cselect">Select:</label>
-                <select name="Tone" id="cselect">
-                    <option value="c">C</option>
-                    <option value="c#">C#</option>
-                    <option value="d">D</option>
-                    <option value="d#">D#</option>
-                    <option value="e">E</option>
-                    <option value="f">F</option>
-                    <option value="f#">F#</option>
-                    <option value="g">G</option>
-                    <option value="g#">G#</option>
-                    <option value="a">A</option>
-                    <option value="a#">A#</option>
-                    <option value="b">B</option>
-                </select>
-                <select name="Type">
-                    <option value="none"></option>
-                    <option value="maj">maj</option>
-                    <option value="m">m</option>
-                    <option value="dim">dim</option>
-                    <option value="aug">aug</option>
-                    <option value="sus">sus</option>
-                </select>
-                <select name="Extension">
-                    <option value="none"></option>
-                    <option value="2">2</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="6/9">6/9</option>
-                    <option value="7">7</option>
-                    <option value="7b5">7b5</option>
-                    <option value="9">9</option>
-                    <option value="11">11</option>
-                    <option value="13">13</option>
-                </select>
-
-                <br />
-                <br />
-                <label for="">Instrument:</label>
-                <input type="radio" id="both" name="Inst" value="both" checked="checked" />
-                <label for="both">Both</label>
-                <input type="radio" id="guit" name="Inst" value="guitar" />
-                <label for="guit">Guitar</label>
-                <input type="radio" id="piano" name="Inst" value="piano" />
-                <label for="piano">Piano</label>
-
-                <br />
-                <br />
-
-                <label for="">Chord Progression:</label>
-                <input type="radio" id="none" name="prog" value="none" checked="checked" />
-                <label for="none">None</label>
-                <input type="radio" id="3" name="prog" value="triads" />
-                <label for="3">Triads</label>
-                <input type="radio" id="7" name="prog" value="7th" />
-                <label for="7">7th chords</label>
-  
-                <br />
-                <br />*@
             </form>
-@*
-            <br />
-
-            <div class="mainChord">
-                <h2>@Model.Name</h2>
-                <br />
-                <ins class="scales_chords_api" chord="@Model.Name" output="sound"></ins>
-                <ins class="scales_chords_api" chord="@Model.Name" height="170"></ins>
-                <ins class="scales_chords_api" chord="@Model.Name" instrument="piano" output="sound"></ins>
-                <ins id="pmain" class="scales_chords_api" chord="@Model.Name" instrument="piano" height="170"></ins>
-            </div>
-        </div>
-
-        <br>
-        <br>*@
-     
-            
-
-            
     </section>
 </body>
 
 <style>
-    ins {
-        margin: 5px;
-        /*margin-right: 5px*/
-    }
-
     h2{
         /*border: 3px solid lightgray;*/
         width: 200px;
@@ -128,39 +36,11 @@
         
     }
 
-    #diatonProgP, #diatonProgG {
-        width: 1300px;
-        /*border: 3px solid lightgray;
-        border-radius: 50px;*/
-        margin: 5px;
-    }
-
     form {
         /*border: 3px solid lightgray;*/
         border-radius: 50px;
         width: 400px;
         margin-left: 35%;
-    }
-
-    #chords {
-        display: flex;
-        justify-content: center;
-    }
-
-    .diag {
-        border: 5px white solid;
-        border-radius:10px;
-        text-align: left;
-        width: fit-content;
-        margin: 4px;
-        display: inline-block;
-    }
-
-    .main{
-        /*border: 5px gray solid;*/
-        /*display:contents;
-        justify-content: center;
-        align-items: center;*/
     }
 </style>
 @section Scripts {
