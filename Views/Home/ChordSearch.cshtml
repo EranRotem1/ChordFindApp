@@ -5,12 +5,18 @@
     <section>
         <div class="main">
             <h1 class="display-4">ChordFind</h1>
-
+            @if (Model.Name[1] == 'b' || Model.Name[1] == '#')
+            {
+                Model.Accidental = Model.Name[1].ToString();
+                Model.Tone = Model.Name[0].ToString() + Model.Accidental;
+            }
+            else { Model.Tone = Model.Name[0].ToString(); }
             <br>
             <form asp-action="ChordSearch" asp-controller="Home" method="post">
                 <br />
                 <label for="ctext">Chord Name:</label>
                 <input type="text" id="ctext" name="Name" value="@Model.Name" />
+                <button type="submit">Search</button>
 
                 <br />
                 <br />
@@ -74,11 +80,8 @@
                 <label for="3">Triads</label>
                 <input type="radio" id="7" name="Progression" value="sevenths" />
                 <label for="7">7th chords</label>
-
-                <br />
-                <br />
-
-                <button type="submit">Search</button>
+                <input type="radio" id="tone" name="Progression" value="tone" />
+                <label for="tone">Tone Chords</label>
 
                 <br />
                 <br />
@@ -113,10 +116,10 @@
                 <div id="diatonProgG7" style="width: 1600px">
                     <h3>Diatonic 7th Chords: Guitar</h3>
                 <div class="diag" style="border-color:#63f542;">
-                    <ins class="scales_chords_api" chord="Cmaj7"></ins>
+                    <ins class="scales_chords_api" chord="@Model.Tone maj7"></ins>
                     <p>
                         (I) Tonic
-                        <ins class="scales_chords_api" chord="Cmaj7" output="sound"></ins>
+                        <ins class="scales_chords_api" chord="@Model.Tone maj7" output="sound"></ins>
                     </p>
                 </div>
                 <div class="diag" style="border-color:#40a3f5;">
@@ -171,10 +174,10 @@
                 <div id="diatonProgP7">
                     <h3>Diatonic 7th Chords: Piano</h3>
                 <div class="diag" style="border-color:#63f542;">
-                    <ins class="scales_chords_api" chord="Cmaj7" instrument="piano" height="110"></ins>
+                    <ins class="scales_chords_api" chord="@Model.Tone maj7" instrument="piano" height="110"></ins>
                     <p>
                         (I) Tonic
-                        <ins class="scales_chords_api" chord="Cmaj7" instrument="piano" output="sound"></ins>
+                        <ins class="scales_chords_api" chord="@Model.Tone maj7" instrument="piano" output="sound"></ins>
                     </p>
                 </div>
                 <div class="diag" style="border-color:#40a3f5;">
@@ -227,10 +230,10 @@
                 <div id="diatonProgG" style="width: 1600px">
                     <h3>Diatonic Triads: Guitar</h3>
                 <div class="diag" style="border-color:#63f542;">
-                    <ins class="scales_chords_api" chord="C"></ins>
+                    <ins class="scales_chords_api" chord="@Model.Tone"></ins>
                     <p>
                         (I) Tonic
-                        <ins class="scales_chords_api" chord="C" output="sound"></ins>
+                        <ins class="scales_chords_api" chord="@Model.Tone" output="sound"></ins>
                     </p>
                 </div>
                 <div class="diag" style="border-color:#40a3f5;">
@@ -285,10 +288,10 @@
                 <div id="diatonProgP">
                     <h3>Diatonic Triads: Piano</h3>
                 <div class="diag" style="border-color:#63f542;">
-                    <ins class="scales_chords_api" chord="C" instrument="piano" height="110"></ins>
+                    <ins class="scales_chords_api" chord="@Model.Tone" instrument="piano" height="110"></ins>
                     <p>
                         (I) Tonic
-                        <ins class="scales_chords_api" chord="C" instrument="piano" output="sound"></ins>
+                        <ins class="scales_chords_api" chord="@Model.Tone" instrument="piano" output="sound"></ins>
                     </p>
                 </div>
                 <div class="diag" style="border-color:#40a3f5;">
@@ -335,6 +338,43 @@
                 </div>
             </div>
             }
+
+            @if (Model.Progression == "tone" && (Model.Inst == "both" || Model.Inst == "guitar"))
+            {
+                <div class="" width="2000px">
+                    <h3>Tone Chords: Guitar</h3>
+
+                @foreach (var name in Model.ToneChords)
+                {
+                    <div class="chordtones">
+
+                        <p>
+                           @Model.Tone@name
+                                <ins class="scales_chords_api" chord="@Model.Tone@name" instrument="guitar" output="sound"></ins>
+                        </p>
+                        <ins class="scales_chords_api" chord="@Model.Tone@name" instrument="guitar" ></ins>
+                    </div>
+                }
+                </div>
+            }
+            @if (Model.Progression == "tone" && (Model.Inst == "both" || Model.Inst == "piano"))
+            {
+                <div class="" width="2000px">
+                    <h3>Tone Chords: Piano</h3>
+
+                    @foreach (var name in Model.ToneChords)
+                    {
+                        <div class="chordtones">
+
+                            <p>
+                                @Model.Tone@name
+                                <ins class="scales_chords_api" chord="@Model.Tone@name" instrument="piano" output="sound"></ins>
+                            </p>
+                            <ins class="scales_chords_api" chord="@Model.Tone@name" instrument="piano" height="115"></ins>
+                        </div>
+                    }
+                </div>
+            }
         </section>
     </section>
 </body>
@@ -374,13 +414,21 @@
         justify-content: center;
     }
 
-    .diag {
-        border: 5px white solid;
+    .diag{
+        border: 3px lightgray solid;
         border-radius: 10px;
         text-align: left;
         width: fit-content;
         margin: 4px;
         display: inline-block;
+    }
+
+    .chordtones{
+        text-align:center;
+        border: 3px lightgray solid;
+        border-radius: 10px;
+        width: fit-content;
+        margin: 4px;
     }
 
     .main {

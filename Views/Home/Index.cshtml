@@ -4,13 +4,22 @@
     </header>
     <section>
         <div class="main">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
             <h1 class="display-4">ChordFind</h1>
 
             <br>
             <form asp-action="ChordSearch" asp-controller="Home" method="post">
                 <br />
                 <label for="ctext">Chord Name:</label>
-                <input type="text" id="ctext" name="Name" value="@Model.Name" />
+                <input type="text" id="ctext" name="Name" value="" />
                 <button type="submit">Search</button>
 
 @*
@@ -55,7 +64,7 @@
                     <option value="11">11</option>
                     <option value="13">13</option>
                 </select>
-*@
+
                 <br />
                 <br />
                 <label for="">Instrument:</label>
@@ -70,17 +79,17 @@
                 <br />
 
                 <label for="">Chord Progression:</label>
-                <input type="radio" id="none" name="prog" value="none" />
+                <input type="radio" id="none" name="prog" value="none" checked="checked" />
                 <label for="none">None</label>
-                <input type="radio" id="3" name="prog" value="triads" checked="checked" />
+                <input type="radio" id="3" name="prog" value="triads" />
                 <label for="3">Triads</label>
                 <input type="radio" id="7" name="prog" value="7th" />
                 <label for="7">7th chords</label>
   
                 <br />
-                <br />
+                <br />*@
             </form>
-
+@*
             <br />
 
             <div class="mainChord">
@@ -94,8 +103,11 @@
         </div>
 
         <br>
-        <br>
-        
+        <br>*@
+     
+            
+
+            
     </section>
 </body>
 
@@ -124,7 +136,7 @@
     }
 
     form {
-        border: 3px solid lightgray;
+        /*border: 3px solid lightgray;*/
         border-radius: 50px;
         width: 400px;
         margin-left: 35%;
