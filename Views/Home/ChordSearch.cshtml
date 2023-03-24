@@ -6,6 +6,11 @@
     <section>
         <div class="main">
             <h1 class="display-4">ChordFind</h1>
+            @if (Model.Name.Length == 0 || Model.Name == null)
+            {
+                Model.Name = "C";
+            }
+
             @if (Model.Name.Length > 1 && (Model.Name[1] == 'b' || Model.Name[1] == '#'))
             {
                 Model.Accidental = Model.Name[1].ToString();
@@ -60,47 +65,6 @@
                 <br />
                 <br />
 
-               @* <p>Or</p>
-
-                <label for="cselect">Select:</label>
-                <select name="Tone" id="cselect">
-                    <option value="c">C</option>
-                    <option value="c#">C#</option>
-                    <option value="d">D</option>
-                    <option value="d#">D#</option>
-                    <option value="e">E</option>
-                    <option value="f">F</option>
-                    <option value="f#">F#</option>
-                    <option value="g">G</option>
-                    <option value="g#">G#</option>
-                    <option value="a">A</option>
-                    <option value="a#">A#</option>
-                    <option value="b">B</option>
-                </select>
-                <select name="Type">
-                    <option value="none"></option>
-                    <option value="maj">maj</option>
-                    <option value="m">m</option>
-                    <option value="dim">dim</option>
-                    <option value="aug">aug</option>
-                    <option value="sus">sus</option>
-                </select>
-                <select name="Extension">
-                    <option value="none"></option>
-                    <option value="2">2</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="6/9">6/9</option>
-                    <option value="7">7</option>
-                    <option value="7b5">7b5</option>
-                    <option value="9">9</option>
-                    <option value="11">11</option>
-                    <option value="13">13</option>
-                </select>
-
-                <br />
-                <br />*@
                 <label for="">Instrument:</label>
                 <input type="radio" id="both" name="Inst" value="both" checked="checked" />
                 <label for="both">Both</label>
@@ -113,14 +77,6 @@
                 <br />
 
                 <label for="progMenu">Chord Progression:</label>
-                @*<input type="radio" id="none" name="Progression" value="none" checked="checked"/>
-                <label for="none">None</label>
-                <input type="radio" id="3" name="Progression" value="triads" />
-                <label for="3">Triads</label>
-                <input type="radio" id="7" name="Progression" value="sevenths" />
-                <label for="7">7th chords</label>
-                <input type="radio" id="tone" name="Progression" value="tone" />
-                <label for="tone">Tone Chords</label>*@
                 <select id="progMenu" name="Progression">
                     @foreach (var prog in Model.Progressions)
                     {
@@ -134,9 +90,7 @@
 
             <br />
             <br />
-
-
-
+            @*displays the input chord*@
                 <div class="mainChord">
                     <h2>@Model.Name</h2>
                 <br />
@@ -155,7 +109,9 @@
 
         <br>
         <br>
+        @*displays any and all chord patterns*@
         <section id="chords">
+            @*7th chords*@
             @if (Model.Progression == "7th Chords" && (Model.Inst == "guitar" || Model.Inst == "both"))
             {
                 <div id="diatonProg" >
@@ -211,9 +167,6 @@
                 </div>
             </div>
             }
-          @*  <br>
-            <br>
-            <br>*@
             @if (Model.Progression == "7th Chords" && (Model.Inst == "piano" || Model.Inst == "both"))
             {
                 <div id="diatonProg" >
@@ -269,8 +222,8 @@
                 </div>
             </div>
             }
-            @*triads*@
             
+            @*triads*@
             @if (Model.Progression == "Triads" && (Model.Inst == "guitar" || Model.Inst == "both"))
             {
                 <div id="diatonProg" >
@@ -326,9 +279,6 @@
                 </div>
             </div>
             }
-         @*   <br>
-            <br>
-            <br>*@
             @if (Model.Progression == "Triads" && (Model.Inst == "piano" || Model.Inst == "both"))
             {
                 <div class="diatonProg">
@@ -385,6 +335,7 @@
             </div>
             }
 
+            @*Tonic Chord*@
             @if (Model.Progression == "Tone Chords" && (Model.Inst == "both" || Model.Inst == "guitar"))
             {
                 <div class="diatonProg">

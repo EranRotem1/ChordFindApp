@@ -3,7 +3,7 @@
     <header>
     </header>
     <section>
-        <div class="main">
+        <div id="main">
             <br />
             <br />
             <br />
@@ -14,13 +14,21 @@
             <br />
             <h1 class="display-4">ChordFind</h1>
 
-            <br>
             <form asp-action="ChordSearch" asp-controller="Home" method="post">
                 <br />
                 <label for="ctext">Chord Name:</label>
                 <input type="text" id="ctext" name="Name" value="" />
                 <button type="submit">Search</button>
             </form>
+            <br />
+
+            <div id="noticeText">
+                <p style="font-size: smaller"><strong>Notice: </strong>If you know music just type in a chord and play around! The API used (ScalesChordsAPI) 
+                    is very versatile and accounts for lowercase letters (C = c), unnecessary extensions (Cmaj = C), and enharmonic
+                    equivalence (Gb = F#). If you dont know what to do with this, type in any letter A through G and just try things out. 
+                    If you type in something that isn't a chord the system will probably use the first letter as the tonic. Currently it will only give you the 
+                    major chord progressions but the goal is to implement the other six modes.</p>
+            </div>
     </section>
 </body>
 
@@ -28,7 +36,7 @@
     h2{
         /*border: 3px solid lightgray;*/
         width: 200px;
-        margin-left: 42%;
+        /*margin-left: 42%;*/
     }
 
     body {
@@ -40,6 +48,19 @@
         /*border: 3px solid lightgray;*/
         border-radius: 50px;
         width: 400px;
+        /*margin-left: 35%;*/
+    }
+
+    #noticeText{
+        background-color: lightgray;
+        border: 2px gray solid;
+        border-radius:15px;
+        width: 500px;
+    }
+
+    #main{
+        width:fit-content;
+        height: fit-content;
         margin-left: 35%;
     }
 </style>
