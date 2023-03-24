@@ -6,7 +6,7 @@
     <section>
         <div class="main">
             <h1 class="display-4">ChordFind</h1>
-            @if (Model.Name.Length == 0 || Model.Name == null)
+            @if (Model.Name == null || Model.Name.Length == 0)
             {
                 Model.Name = "C";
             }
